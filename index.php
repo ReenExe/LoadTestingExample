@@ -39,9 +39,9 @@ $app->get('/api/collection/:id', function($id) use($app, $collection) {
 
 $app->get('/api/collection/:id/elements', function($id) use($app, $element) {
     if (isset($element[$id])) {
-        return Api::pretty([
+        return Api::pretty(
             $element[$id]
-        ]);
+        );
     }
 
     $app->response->status(404);
@@ -49,9 +49,9 @@ $app->get('/api/collection/:id/elements', function($id) use($app, $element) {
 
 $app->get('/api/collection/:collectionId/element/:elementId', function($collectionId, $elementId) use($app, $element) {
     if (isset($element[$collectionId][$elementId])) {
-        return Api::pretty([
+        return Api::pretty(
             $element[$collectionId][$elementId]
-        ]);
+        );
     }
 
     $app->response->status(404);
