@@ -23,8 +23,9 @@ class ManagerBehavior(TaskSet):
             collectionId = collections[index]['id']
             elements = self.client.get("/api/collection/{}/elements".format(collectionId)).json()
 
-            for element in elements:
-                self.client.get("/api/collection/{}/element/{}".format(collectionId, element['id']))
+            for elementIndex in elements:
+                elementId = elements[elementIndex]['id']
+                self.client.get("/api/collection/{}/element/{}".format(collectionId, elementId))
 
 class UserTesting(HttpLocust):
     task_set = MobileBehavior
