@@ -17,6 +17,12 @@ class Api
     }
 }
 
+$app->get('/', function () use($collection) {
+    Api::pretty([
+        'success' => true
+    ]);
+});
+
 $app->get('/api/collections', function () use($collection) {
     Api::pretty($collection);
 });
@@ -52,3 +58,5 @@ $app->get('/api/collection/:collectionId/element/:elementId', function($collecti
 });
 
 $app->run();
+
+// sudo php -S 0.0.0.0:80
