@@ -15,6 +15,13 @@ class MobileBehavior(TaskSet):
     def collections(self):
         self.client.get("/api/collections")
 
+class ManagerBehavior(TaskSet):
+    @task
+    def collection(self):
+        collections = self.client.get("/api/collections").json()
+        for index in collections:
+            self.client.get("/api/collection/{}".format(collections[index]['id']))
+
 class UserTesting(HttpLocust):
     task_set = MobileBehavior
     min_wait = 1000
@@ -27,6 +34,11 @@ class AndroidTesting(HttpLocust):
 
 class BlackberryTesting(HttpLocust):
     task_set = UserBehavior
+    min_wait = 3000
+    max_wait = 20000
+
+class ManagerTesting(HttpLocust):
+    task_set = ManagerBehavior
     min_wait = 3000
     max_wait = 20000
 
