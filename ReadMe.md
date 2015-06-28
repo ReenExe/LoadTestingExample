@@ -1,18 +1,20 @@
+
 ```bash
-vagrant up
+vagrant up --provision
+vagrant ssh
 ```
 
-in vargant
+directory
 ```bash
 cd /var/www/lte
 ```
 
-start server:
+in vargant start server http://lte.try:
 ```bash
 sudo php -S 0.0.0.0:80
 ```
 
-start locust
+in vargant start locust
 ```bash
 locust -f LocustStressTesting.py --host=http://lte.try
 ```
