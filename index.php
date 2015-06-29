@@ -61,3 +61,4 @@ $app->get('/api/collection/:collectionId/element/:elementId', function($collecti
 $app->run();
 
 // sudo php -S 0.0.0.0:80
+// try with http://flightphp.com/learn
