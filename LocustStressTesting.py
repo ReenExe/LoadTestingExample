@@ -46,6 +46,3 @@ class ManagerTesting(HttpLocust):
     task_set = ManagerBehavior
     min_wait = 3000
     max_wait = 20000
-
-# locust -f LocustStressTesting.py --host=http://lte.try
-# http://lte.try:8089/
